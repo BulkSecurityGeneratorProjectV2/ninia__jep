@@ -2,6 +2,7 @@ package jep.test;
 
 import java.io.File;
 import java.io.FileOutputStream;
+import java.nio.file.Files;
 import java.util.Random;
 
 import jep.JepConfig;
@@ -34,7 +35,7 @@ public class TestGetByteArray {
     }
 
     public static void testGetByteArray() throws Exception {
-        File output = File.createTempFile("testByteArrayGet", ".bin");
+        File output = Files.createTempFile("testByteArrayGet", ".bin").toFile();
         byte[] b = new byte[SIZE];
         new Random().nextBytes(b);
         try (FileOutputStream fos = new FileOutputStream(output)) {
